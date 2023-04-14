@@ -1,0 +1,25 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Hoyolab Honkai Auto Login
+
+on:
+   schedule:
+      - cron: "0 18 * * *" # scheduled at 06:00 (UTC+8) everyday
+   workflow_dispatch:
+
+jobs:
+   build:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v2
+         - uses: actions/setup-node@v2
+           with:
+              node-version: ">=12.14.1"
+         - name: Install dependencies
+           run: npm ci
+
+         - name: honkai Impact 3rd login
+           run: node honkai.js
+           env:
+              HOYOLAB_COOKIE: ${{ secrets.HOYOLAB_COOKIE }}
