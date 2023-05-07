@@ -3,7 +3,10 @@ const fetch = require("node-fetch");
 const ACT_ID = "e202102251931481";
 
 if (process.env.HOYOLAB_COOKIE && process.env.HOYOLAB_COOKIE.length != 0) {
-	GenshinRequest(process.env.HOYOLAB_COOKIE);
+	const cookieList = process.env.HOYOLAB_COOKIE.split(",");
+	cookieList.forEach((cookie) => {
+		hi3Request(cookie);
+	});
 }
 
 async function GenshinRequest(cookie) {

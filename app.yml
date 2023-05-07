@@ -1,0 +1,3 @@
+runtime: nodejs16
+env_variables:
+  HOYOLAB_COOKIE: "ltoken=wo0DWf7Kl2vJ1QHLZMqQJchK57oOalMA9LuBfSU0; ltuid=1017628;"

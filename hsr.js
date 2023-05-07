@@ -1,6 +1,6 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
-const ACT_ID = "e202110291205111";
+const ACT_ID = "e202303301540311";
 
 if (process.env.HOYOLAB_COOKIE && process.env.HOYOLAB_COOKIE.length != 0) {
 	const cookieList = process.env.HOYOLAB_COOKIE.split(",");
@@ -22,7 +22,7 @@ async function hi3Request(cookie) {
 
 async function checkDailyNotSigned(cookie) {
 	try {
-		const response = await fetch(`https://sg-public-api.hoyolab.com/event/mani/info?lang=en-us&act_id=${ACT_ID}`, {
+		const response = await fetch(`https://sg-public-api.hoyolab.com/event/luna/os/info?lang=en-us&act_id=${ACT_ID}`, {
 			headers: {
 				accept: "application/json, text/plain, */*",
 				"accept-language": "en-US,en;q=0.9",
@@ -53,7 +53,7 @@ async function checkDailyNotSigned(cookie) {
 
 async function DailySigned(cookie) {
 	try {
-		const response = await fetch(`https://sg-public-api.hoyolab.com/event/mani/sign?lang=en-us`, {
+		const response = await fetch(`https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us`, {
 			headers: {
 				accept: "application/json, text/plain, */*",
 				"accept-language": "en-US,en;q=0.9",

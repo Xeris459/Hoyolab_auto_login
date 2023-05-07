@@ -3,7 +3,10 @@ const fetch = require("node-fetch");
 const ACT_ID = "e202110291205111";
 
 if (process.env.HOYOLAB_COOKIE && process.env.HOYOLAB_COOKIE.length != 0) {
-	hi3Request(process.env.HOYOLAB_COOKIE);
+	const cookieList = process.env.HOYOLAB_COOKIE.split(",");
+	cookieList.forEach((cookie) => {
+		hi3Request(cookie);
+	});
 }
 
 async function hi3Request(cookie) {
